@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -363,6 +362,7 @@
             footer.classList.toggle('light-mode');
             navbar.classList.toggle('light-navbar');
         });
+
     </script>
 </body>
 </html>
