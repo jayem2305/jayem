@@ -8,6 +8,57 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
+        /* Full-page height and centering */
+        #home {
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            align-items: center; /* Vertical alignment */
+            justify-content: center; /* Horizontal alignment */
+            flex-direction: column; /* Stack content vertically */
+            background-color: #121212; /* Optional background color */
+        }
+        #home img {
+            border: 2px solid #6c757d; /* Optional border for image */
+        }
+        #home h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        #home h3 {
+            font-size: 1.25rem;
+            color: #6c757d; /* Secondary text color */
+        }
+        #home p {
+            font-size: 1.1rem;
+            color: #495057; /* Slightly darker gray */
+        }
+        #home.dark-mode {
+    background-color: #262B3F; /* Dark mode background */
+    color: #d1d5db; /* Light text color */
+}
+
+#home.dark-mode h1,
+#home.dark-mode h3,
+#home.dark-mode p {
+    color: #ffffff; /* Ensure text is visible in dark mode */
+}
+
+#home.dark-mode img {
+    border-color: #ffffff; /* Optional: change the border color */
+}
+.typing-effect::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    100% {
+        opacity: 0;
+    }
+}
+
+    </style>
+    <style>
         body {
             background-color: #121212;
             color: #ffffff;
@@ -101,11 +152,7 @@
         footer .icon-button:hover {
             color: #0d6efd;
         }
-        .card-img-top {
-    width: 100%;
-    height: 250px; /* Set the height as desired */
-    object-fit: cover; /* This ensures the images retain their aspect ratio while covering the area */
-}
+
     </style>
 </head>
 <body>
@@ -129,18 +176,32 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact"><i class="bi bi-envelope me-1"></i> Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <span class="icon-button ms-3" id="toggle-dark-mode"><i class="bi bi-moon"></i></span>
+                    <li class="nav-item" style="margin-top:.6rem;">
+                        <span class="icon-button ms-3" id="toggle-dark-mode" ><i class="bi bi-moon"></i></span>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div id="home" class="section text-center">
-        <h1>Welcome</h1>
-        <p>Discover my professional journey, skills, and achievements.</p>
+    <div id="home" class="section text-center py-12">
+    <div class="container">
+        <!-- Image Section -->
+        <div class="mb-4">
+            <img src="../Images/2x2.jpg" alt="Your Name" class="rounded-circle img-fluid shadow-lg" 
+                 style="width: 150px; height: 150px; object-fit: cover; border: 3px solid #4f46e5;">
+        </div>
+        <!-- Name and Course -->
+        <h1 class="animate__animated animate__fadeInDown">Jhon Mark A. Enrique</h1>
+        <h3 class="text-secondary animate__animated animate__fadeInDown animate__delay-1s">
+            Bachelor of Science in Computer Science Major in Application Development
+        </h3>
+        <!-- Typing Animation for Welcome Message -->
+        <p class="mt-3 typing-effect" style="font-size: 1.25rem; font-family: 'Courier New', monospace; color:white;"></p>
     </div>
+</div>
+
+
 
     <div id="portfolio" class="section text-center">
     <h2>Portfolio</h2>
@@ -323,26 +384,28 @@
 
 
 
-    <div id="contact" class="section text-center">
-        <h2>Contact</h2>
-        <p>I'm always open to new opportunities and collaborations. Feel free to get in touch with me through any of the following channels:</p>
-        <p><i class="bi bi-envelope me-2"></i> myemail@example.com</p>
-        <p><i class="bi bi-linkedin me-2"></i> LinkedIn Profile</p>
-    </div>
+<div id="contact" class="section text-center">
+    <h2>Contact</h2>
+    <p>I'm always open to new opportunities and collaborations. Feel free to get in touch with me through any of the following channels:</p>
+    <p><i class="bi bi-envelope me-2"></i> jayenrique2305@gmail.com</p>
+    <p><i class="bi bi-linkedin me-2"></i> <a href="https://www.linkedin.com/in/jhon-mark-enrique-4104a9308/" target="_blank" style="text-decoration: none;">LinkedIn Profile</a></p>
+    <p><i class="bi bi-telephone me-2"></i>+63 999 872 6506</p>
+</div>
+
 
     <footer>
         <p>&copy; 2025 My Portfolio. Made with Bootstrap.</p>
         <div>
-            <a href="https://twitter.com" target="_blank" class="icon-button me-3">
+            <a href="https://mail.google.com/mail/u/3/#inbox" target="_blank" class="icon-button me-3">
                 <i class="bi bi-google"></i>
             </a>
-            <a href="https://facebook.com" target="_blank" class="icon-button me-3">
+            <a href="https://www.facebook.com/JaY.M.EnRiQuE" target="_blank" class="icon-button me-3">
                 <i class="bi bi-facebook"></i>
             </a>
-            <a href="https://linkedin.com" target="_blank" class="icon-button me-3">
+            <a href="https://www.linkedin.com/in/jhon-mark-enrique-4104a9308/" target="_blank" class="icon-button me-3">
                 <i class="bi bi-linkedin"></i>
             </a>
-            <a href="https://github.com" target="_blank" class="icon-button">
+            <a href="https://jayem2305.github.io/jayem/" target="_blank" class="icon-button">
                 <i class="bi bi-github"></i>
             </a>
         </div>
@@ -361,7 +424,23 @@
             body.classList.toggle('dark-mode');
             footer.classList.toggle('light-mode');
             navbar.classList.toggle('light-navbar');
+            document.querySelector('#home').classList.toggle('dark-mode');
         });
+        document.addEventListener('DOMContentLoaded', () => {
+    const textElement = document.querySelector('.typing-effect');
+    const text = "Discover my professional journey, skills, and achievements.";
+    let index = 0;
+
+    function typeEffect() {
+        if (index < text.length) {
+            textElement.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeEffect, 100); // Adjust typing speed here
+        }
+    }
+
+    typeEffect();
+});
 
     </script>
 </body>
